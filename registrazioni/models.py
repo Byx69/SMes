@@ -13,6 +13,8 @@ EVENTI = (
     ('ALR', 'Allarme rientrato'),
     ('OP+', 'Operatore inserito'),
     ('OP-', 'Operatore disinserito'),
+    ('ORA', 'Ordine aperto'),
+    ('ORO', 'Ordine chiuso'),
     )
 
 class Registrazione(models.Model):
