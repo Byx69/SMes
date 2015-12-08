@@ -15,6 +15,7 @@ EVENTI = (
     ('OP-', 'Operatore disinserito'),
     ('ORA', 'Ordine aperto'),
     ('ORO', 'Ordine chiuso'),
+    ('PRO', 'Produzione'),
     )
 
 class Registrazione(models.Model):

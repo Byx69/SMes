@@ -72,10 +72,9 @@ def chiudiordine():
     cursore = connessione.cursor()
     cursore.execute("""SELECT ordine_id FROM impianti_pannello WHERE id=?""", (pannello_id,))
     ordine_id = cursore.fetchone()[0]
-    cursore = connessione.cursor()
-    cursore.execute("""UPDATE impianti_pannello SET ordine_id=NULL WHERE id=?""", (pannello_id,))
-    connessione.commit()
     cursore.execute("""UPDATE ordini_ordine SET data_chiusura=? WHERE id=?""", (datetime.datetime.now(), ordine_id,))
+    connessione.commit()
+    cursore.execute("""UPDATE impianti_pannello SET ordine_id=NULL WHERE id=?""", (pannello_id,))
     connessione.commit()    
 
 def pok():
@@ -97,17 +96,21 @@ def pko():
     quantita_ko += 1
     cursore.execute("""UPDATE ordini_ordine SET quantita_ko=? WHERE id=?""", (quantita_ko, ordine_id))    
     connessione.commit()
+
+def produzione():
+    registra('PRO')
+    
    
-   
-spento()
-acceso()
-allarmescattato()
-allarmerientrato()
-operatoreinserito('0987654321')
-operatoredisinserito('0987654321')
-pok()
-pko()
-apriordine(1)
-chiudiordine()
+##spento()
+##acceso()
+##allarmescattato()
+##allarmerientrato()
+##operatoreinserito('0987654321')
+##operatoredisinserito('0987654321')
+##pok()
+##pko()
+##apriordine(1)
+##chiudiordine()
+produzione()
 
 connessione.close()
